@@ -9,7 +9,7 @@ Abstract
     -  Verificação de quantidade.
     -  Informar itens necessário para compra.
     -  Solicitar item para compra.
-    -  Cadastrar item, Dar entrada de item no estoque, Dar baixa no item, Excluir item.
+    -  Cadastrar item, Adicionar item no estoque, Remove item, Excluir item.
 - List of features
     -  Item location.
     -  Quantity check.
