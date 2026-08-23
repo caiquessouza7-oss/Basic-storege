@@ -1,4 +1,5 @@
 # BasicStockroom
+Almoxarifado
 Resumo/Abstract
 -   O projeto e baseado em um almoxarifado de forma virtual, em que é possível identificar ruas
  prateleiras, níveis e compartimento, a fim de facilitar a localização dos itens ali dispostos.
