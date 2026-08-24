@@ -46,9 +46,25 @@ class ProdutoRepository:
                 return Produto(codigo=row[0], descricao=row[1], localizacao=row[2], quantidade=row[3])
             return None
 
-    def listar_toods(self):
+    def listar_todos(self):
         with self._conectar() as conn:
             cursor = conn.cursor()
-            cursor.exxecute('SELECT codigo, descricao, localizacao, quantidade FROM produtos')
+            cursor.execute('SELECT codigo, descricao, localizacao, quantidade FROM produtos')
             rows = cursor.fetchall()
-            return [Produto(codigo=r[0], deszcricao=r[1], localizacao=r[2], quantidade=r[3]) for r in rows]
+            return [Produto(codigo=r[0], descricao=r[1], localizacao=r[2], quantidade=r[3]) for r in rows]
+
+    def localizar_produto_geral(self, termo):
+        with self._conectar() as conn:
+            cursor = conn.cursor()
+            query = '''
+                SELECT codigo, descricao, localizacao, quantidade
+                FROM produtos
+                WHERE codigo LIKE ? OR descricao LIKE OR localizacao LIKE ?
+                '''
+            termo_busca = f'%{termo}%'
+            cursor.execute(query, (termo_busca, termo_busca, termo_busca))
+            rows = cursor.fetchall()
+
+            from models import Produto
+            return [Produto(codigo=r[0], descricao=r[1], localizacao=r[2], quantidade=r[3]) for r in rows]
+        
